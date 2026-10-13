@@ -8,6 +8,8 @@ This repository accompanies the manuscript draft *Longitudinal Modeling and Inte
 
 > **Scientific scope:** exploratory research with only five independent sites. P1–P3 (“Zone A”) and P4–P5 (“Zone B”) are predefined analytical groups, not independently validated ecological zones. Anomalies are unusual observations, not proof of pollution.
 
+**Repository status:** The Python script, Colab notebook, and documentation are available. The Excel dataset and manuscript PDF are **not yet uploaded**; add them manually using the paths shown below before running the analysis. Keep the repository private until the coauthors approve distribution.
+
 ## Repository structure
 
 ```text
@@ -67,7 +69,7 @@ python -m pip install -r requirements.txt
 python src/water_quality_analysis.py
 ```
 
-The script automatically loads `data/Base_Datos_Calidad_Agua_Integrada.xlsx` from the repository. Results are written to `resultados_calidad_agua/`, and a zipped copy is created as `Resultados_Calidad_Agua.zip`.
+Once you upload the Excel file to `data/Base_Datos_Calidad_Agua_Integrada.xlsx`, the script loads it from the repository. Results are written to `resultados_calidad_agua/`, and a zipped copy is created as `Resultados_Calidad_Agua.zip`.
 
 Run optional SHAP from the shell with:
 
