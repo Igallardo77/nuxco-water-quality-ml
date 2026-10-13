@@ -13,6 +13,8 @@ Repositorio científico para reproducir el análisis fisicoquímico del agua en 
 7. Calcula importancia fuera de muestra y SHAP opcional.
 8. Exporta tablas y figuras a Excel/ZIP.
 
+**Estado de publicación:** El código, cuaderno y la documentación ya están en GitHub. **Falta subir la base Excel y el manuscrito PDF**; el repositorio se mantiene privado hasta contar con la aprobación de los coautores.
+
 ## Uso mediante Google Colab
 
 Abre [Google Colab](https://colab.research.google.com/), selecciona **Archivo → Subir cuaderno** y carga `notebooks/Nuxco_Water_Quality_Analysis.ipynb`. Ejecuta todas las celdas y, cuando lo solicite, sube `data/Base_Datos_Calidad_Agua_Integrada.xlsx`. Al finalizar obtendrás el ZIP con gráficos, modelos y tablas de resultados.
