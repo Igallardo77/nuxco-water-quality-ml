@@ -1,0 +1,51 @@
+{
+  "main_figures_restored": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "map_unchanged": true,
+  "source_period": [
+    "2016-02",
+    "2017-03"
+  ],
+  "no_sampling": "2016-03",
+  "classification_importance_top3": [
+    {
+      "variable": "SST_mg_L",
+      "DeltaLogLoss": 0.09130857313301939,
+      "SD_permutation": 0.02350534999720713
+    },
+    {
+      "variable": "NH3_N_mg_L",
+      "DeltaLogLoss": 0.08814846631641059,
+      "SD_permutation": 0.026858184033217495
+    },
+    {
+      "variable": "NO3_mg_L",
+      "DeltaLogLoss": 0.08283976557282419,
+      "SD_permutation": 0.01578790319898635
+    }
+  ],
+  "classification_OOF_reproduced": true,
+  "anomaly_IF_flags_reproduced": true,
+  "cluster_sizes": [
+    41,
+    20,
+    4
+  ],
+  "confusion_matrix": [
+    [
+      24,
+      2
+    ],
+    [
+      6,
+      33
+    ]
+  ]
+}

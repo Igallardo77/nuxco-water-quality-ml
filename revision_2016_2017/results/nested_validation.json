@@ -1,0 +1,104 @@
+{
+  "regression": {
+    "n": 65,
+    "MAE": 0.40995450557372687,
+    "RMSE": 0.5033130393211945,
+    "R2": 0.2228884594314926,
+    "Bias": 0.018744536058999454
+  },
+  "baseline": {
+    "n": 65,
+    "MAE": 0.4262051282051281,
+    "RMSE": 0.5924076436368088,
+    "R2": -0.07658494372288915,
+    "Bias": -8.198570028001156e-17
+  },
+  "classification": {
+    "balanced_accuracy": 0.8846153846153846,
+    "AUC": 0.9378698224852071,
+    "Brier": 0.0896429683589441,
+    "LogLoss": 0.2989827971395442
+  },
+  "selections": [
+    {
+      "period": "2016-02",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.453320739201083,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-04",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.5}",
+      "inner_RMSE": 0.3234380629223397,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-05",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.05, 'model__l1_ratio': 0.1}",
+      "inner_RMSE": 0.3935360958164841,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-06",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.453391406551008,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-07",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.4475113486523747,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-08",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.4228252014693024,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-09",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.42492986570456426,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-10",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.5, 'model__l1_ratio': 0.1}",
+      "inner_RMSE": 0.4395762267185569,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-11",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.5, 'model__l1_ratio': 0.1}",
+      "inner_RMSE": 0.44038269452693546,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2016-12",
+      "regression_params": "{'model': RandomForestRegressor(n_estimators=200, n_jobs=1, random_state=42), 'model__max_depth': 3, 'model__min_samples_leaf': 3}",
+      "inner_RMSE": 0.43991711822734353,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2017-01",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.43497278201367523,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2017-02",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.4479839758076508,
+      "classifier_C": 1.0
+    },
+    {
+      "period": "2017-03",
+      "regression_params": "{'model': ElasticNet(max_iter=20000, random_state=42), 'model__alpha': 0.1, 'model__l1_ratio': 0.9}",
+      "inner_RMSE": 0.4187364650072406,
+      "classifier_C": 1.0
+    }
+  ],
+  "inner_folds": 4,
+  "outer_folds": 13
+}

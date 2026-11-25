@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Please cite the accompanying manuscript and this repository; a persistent DOI is pending."
-title: "Nuxco Lagoon Water Quality: Longitudinal Statistics and Interpretable Machine Learning"
+title: "A Historical Physicochemical Baseline for Nuxco Lagoon Mexico Using Longitudinal Modeling and Interpretable Machine Learning"
 type: software
 authors:
   - family-names: "Vences-Martínez"
@@ -23,3 +23,7 @@ authors:
     given-names: "José Luis"
   - family-names: "Navarro-Carbajal"
     given-names: "Diana Jhosely"
+
+version: "2.0.0"
+repository-code: "https://github.com/Igallardo77/nuxco-water-quality-ml"
+

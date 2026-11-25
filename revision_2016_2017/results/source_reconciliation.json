@@ -1,0 +1,80 @@
+[
+  {
+    "sheet": "Temp",
+    "variable": "Temperatura_C",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "pH",
+    "variable": "pH",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "CE",
+    "variable": "CE_mS_cm",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "SDT",
+    "variable": "SDT_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "SAL",
+    "variable": "Salinidad_UPS",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "OX DIS",
+    "variable": "OD_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "DBO",
+    "variable": "DBO5_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "DQO",
+    "variable": "DQO_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "SST",
+    "variable": "SST_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "SS",
+    "variable": "SS_mL_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "NH3-N",
+    "variable": "NH3_N_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "NO2",
+    "variable": "NO2_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  },
+  {
+    "sheet": "NO3",
+    "variable": "NO3_mg_L",
+    "values": 65,
+    "max_difference": 0.0
+  }
+]

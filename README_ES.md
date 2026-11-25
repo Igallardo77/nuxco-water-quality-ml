@@ -1,35 +1,20 @@
-# Calidad del agua en la Laguna de Nuxco: estadística longitudinal y ML interpretable
+# Nuxco: línea base fisicoquímica histórica, 2016-2017
 
-Repositorio científico para reproducir el análisis fisicoquímico del agua en la **Laguna de Nuxco, Guerrero (México)**. El diseño contiene cinco puntos observados en trece campañas: **65 registros y 13 variables**.
+Actualización del código y los resultados de la última revisión del manuscrito. El periodo correcto es febrero de 2016 a marzo de 2017; en marzo de 2016 no hubo muestreo. Se analizaron 65 perfiles de cinco estaciones, trece campañas y trece variables.
 
-## ¿Qué hace el código?
-
-1. Verifica la estructura de los datos, calcula estadísticas y correlaciones.
-2. Ajusta modelos GEE con correlación AR(1) y modelos mixtos complementarios.
-3. Ejecuta PCA y clustering (K-means y Ward) para describir gradientes y perfiles.
-4. Evalúa la clasificación exploratoria de dos grupos definidos previamente, P1–P3 y P4–P5.
-5. Predice oxígeno disuelto mediante Ridge, Elastic Net, SVR y Random Forest, frente a un baseline.
-6. Detecta muestras anómalas mediante Isolation Forest, LOF y Mahalanobis.
-7. Calcula importancia fuera de muestra y SHAP opcional.
-8. Exporta tablas y figuras a Excel/ZIP.
-
-**Estado de publicación:** El código, cuaderno y la documentación ya están en GitHub. **Falta subir la base Excel y el manuscrito PDF**; el repositorio se mantiene privado hasta contar con la aprobación de los coautores.
-
-## Uso mediante Google Colab
-
-Abre [Google Colab](https://colab.research.google.com/), selecciona **Archivo → Subir cuaderno** y carga `notebooks/Nuxco_Water_Quality_Analysis.ipynb`. Ejecuta todas las celdas y, cuando lo solicite, sube `data/Base_Datos_Calidad_Agua_Integrada.xlsx`. Al finalizar obtendrás el ZIP con gráficos, modelos y tablas de resultados.
-
-## Uso desde Python
+## Ejecución
 
 ```bash
 python -m pip install -r requirements.txt
 python src/water_quality_analysis.py
 ```
 
-Ejecuta desde la carpeta principal del repositorio. El programa busca la base en `data/` y crea una carpeta `resultados_calidad_agua/` y un archivo `Resultados_Calidad_Agua.zip`.
+Entorno verificado: Python 3.12.14 y versiones fijadas en `requirements.txt`. El notebook de `notebooks/` ejecuta este mismo programa. Los resultados se regeneran en `revision_2016_2017/results/`, los diagnósticos en `revision_2016_2017/figures/` y las figuras finales en `figures/manuscript/`.
 
-## Alcance científico
+## Cambios principales
 
-La clasificación supervisada no descubre dos zonas: estas se definieron previamente. Los tres clústeres son perfiles estadísticos y no niveles regulatorios de contaminación. Solo existen cinco sitios independientes: la inferencia GEE debe ser exploratoria. Las anomalías no prueban contaminación y SHAP no establece causalidad. Los sólidos sedimentables aparecen como `SS_mL_L` en los datos, mientras que una versión del manuscrito los presenta como mg/L: debe confirmarse la unidad con los resultados de laboratorio.
+Se incorporaron meses calendario, covarianza GEE Mancl-DeRouen, referencias t para pocos sitios, corrección BH de trece interacciones, diagnósticos, remuestreo, validación anidada por campaña y sensibilidad a anomalías, nitrito y ceros. Siete interacciones conservan q < 0.05; la interacción de oxígeno tiene q = 0.1188. El Elastic Net fijo obtiene R2 = 0.3847 y RMSE = 0.4479 mg/L; la selección anidada obtiene R2 = 0.2229 y RMSE = 0.5033 mg/L. Son evaluaciones distintas y se reportan por separado.
 
-Para documentación, dependencias y limitaciones completas, consulta **[README.md](README.md)** (inglés).
+Se mantienen los tipos y la organización de las figuras revisadas. El estudio se interpreta como línea base histórica exploratoria; Vences-Martínez et al. (2025) forma parte de la continuidad del equipo. Los resultados no establecen condiciones actuales, causalidad ni una herramienta operativa validada.
+
+La justificación física de los grupos A y B y algunos respaldos de campo/laboratorio siguen pendientes. La actualización del repositorio tampoco sustituye la integración de las precisiones pendientes en el manuscrito. Consulte `README.md`, `docs/methodology_notes.md` y el informe detallado `revision_2016_2017/Resultados_revision_Nuxco.md`.

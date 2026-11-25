@@ -1,0 +1,89 @@
+{
+  "errors": [],
+  "manuscript_check": [
+    {
+      "variable": "Temperatura_C",
+      "contrast": "A",
+      "expected_rounded": -0.205,
+      "computed": -0.20485044473660172,
+      "difference": 0.00014955526339827108
+    },
+    {
+      "variable": "Temperatura_C",
+      "contrast": "B",
+      "expected_rounded": -0.247,
+      "computed": -0.24660003138377612,
+      "difference": 0.000399968616223878
+    },
+    {
+      "variable": "pH",
+      "contrast": "A",
+      "expected_rounded": -0.02,
+      "computed": -0.02017767006511901,
+      "difference": -0.0001776700651190087
+    },
+    {
+      "variable": "pH",
+      "contrast": "B",
+      "expected_rounded": -0.032,
+      "computed": -0.032436396102907016,
+      "difference": -0.00043639610290701486
+    },
+    {
+      "variable": "CE_mS_cm",
+      "contrast": "A",
+      "expected_rounded": 2.017,
+      "computed": 2.016904073950485,
+      "difference": -9.59260495148051e-05
+    },
+    {
+      "variable": "CE_mS_cm",
+      "contrast": "B",
+      "expected_rounded": 1.986,
+      "computed": 1.985696959415539,
+      "difference": -0.0003030405844610673
+    },
+    {
+      "variable": "SDT_mg_L",
+      "contrast": "A",
+      "expected_rounded": 1320.547,
+      "computed": 1320.5467574887855,
+      "difference": -0.00024251121453744418
+    },
+    {
+      "variable": "SDT_mg_L",
+      "contrast": "B",
+      "expected_rounded": 1328.458,
+      "computed": 1328.4584508013857,
+      "difference": 0.0004508013855684112
+    },
+    {
+      "variable": "Salinidad_UPS",
+      "contrast": "A",
+      "expected_rounded": 1.389,
+      "computed": 1.3885648279375216,
+      "difference": -0.00043517206247845053
+    },
+    {
+      "variable": "Salinidad_UPS",
+      "contrast": "B",
+      "expected_rounded": 1.378,
+      "computed": 1.3783242465513936,
+      "difference": 0.0003242465513937365
+    },
+    {
+      "variable": "OD_mg_L",
+      "contrast": "A",
+      "expected_rounded": -0.049,
+      "computed": -0.04916318390772958,
+      "difference": -0.0001631839077295763
+    },
+    {
+      "variable": "OD_mg_L",
+      "contrast": "B",
+      "expected_rounded": -0.006,
+      "computed": -0.005884436118673114,
+      "difference": 0.00011556388132688642
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "variable": "DBO5_mg_L",
+    "contrast": "A",
+    "published_percent": -0.0,
+    "reproduced_percent": -0.019667753529321774
+  },
+  {
+    "variable": "DBO5_mg_L",
+    "contrast": "B",
+    "published_percent": -6.5,
+    "reproduced_percent": -6.479256082866318
+  },
+  {
+    "variable": "DQO_mg_L",
+    "contrast": "A",
+    "published_percent": 1.8,
+    "reproduced_percent": 1.789620658948593
+  },
+  {
+    "variable": "DQO_mg_L",
+    "contrast": "B",
+    "published_percent": -3.2,
+    "reproduced_percent": -3.1829522377627715
+  },
+  {
+    "variable": "SST_mg_L",
+    "contrast": "A",
+    "published_percent": 0.0,
+    "reproduced_percent": 0.04992283834266719
+  },
+  {
+    "variable": "SST_mg_L",
+    "contrast": "B",
+    "published_percent": -6.2,
+    "reproduced_percent": -6.233987519011725
+  },
+  {
+    "variable": "SS_mL_L",
+    "contrast": "A",
+    "published_percent": -2.4,
+    "reproduced_percent": -2.3500725658833432
+  },
+  {
+    "variable": "SS_mL_L",
+    "contrast": "B",
+    "published_percent": -3.7,
+    "reproduced_percent": -3.747563736877737
+  },
+  {
+    "variable": "NH3_N_mg_L",
+    "contrast": "A",
+    "published_percent": 1.3,
+    "reproduced_percent": 1.293431048581721
+  },
+  {
+    "variable": "NH3_N_mg_L",
+    "contrast": "B",
+    "published_percent": -3.8,
+    "reproduced_percent": -3.813966343014071
+  },
+  {
+    "variable": "NO2_mg_L",
+    "contrast": "A",
+    "published_percent": 1.2,
+    "reproduced_percent": 1.1777963607728017
+  },
+  {
+    "variable": "NO2_mg_L",
+    "contrast": "B",
+    "published_percent": -0.7,
+    "reproduced_percent": -0.687931464967822
+  },
+  {
+    "variable": "NO3_mg_L",
+    "contrast": "A",
+    "published_percent": 4.7,
+    "reproduced_percent": 4.744960274228905
+  },
+  {
+    "variable": "NO3_mg_L",
+    "contrast": "B",
+    "published_percent": -8.7,
+    "reproduced_percent": -8.660509449340074
+  }
+]

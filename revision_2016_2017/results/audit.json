@@ -1,0 +1,10 @@
+{
+  "source_reconciliation_values": 845,
+  "month_labels_not_exact_sampling_days": true,
+  "main_code": "analisis_calidad_agua_estadistica_ml_colab (1).py",
+  "watterqt_py": "Different satellite-band workflow; not the analysis supporting this manuscript.",
+  "original_hyperparameters": "Fixed in the inspected script; scaling fitted within training folds. Prior manual tuning history cannot be inferred from code.",
+  "original_FDR": "Code pools all non-intercept terms including available mixed-model tests; manuscript says 13 interactions. Revised analysis explicitly applies BH to 13 interactions per specification.",
+  "protected_files_unchanged": {},
+  "input_sha256": "dcea786dc4f148e478490c67e0b1969066da07439237290ede54784d39d7b704"
+}

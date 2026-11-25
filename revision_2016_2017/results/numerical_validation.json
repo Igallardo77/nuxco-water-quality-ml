@@ -1,0 +1,67 @@
+[
+  {
+    "variable": "Temperatura_C",
+    "MD_delete_cluster_max_error": 8.326672684688674e-17,
+    "converged": true
+  },
+  {
+    "variable": "pH",
+    "MD_delete_cluster_max_error": 2.0816681711721685e-17,
+    "converged": true
+  },
+  {
+    "variable": "CE_mS_cm",
+    "MD_delete_cluster_max_error": 3.885780586188048e-16,
+    "converged": true
+  },
+  {
+    "variable": "SDT_mg_L",
+    "MD_delete_cluster_max_error": 1.9184653865522705e-13,
+    "converged": true
+  },
+  {
+    "variable": "Salinidad_UPS",
+    "MD_delete_cluster_max_error": 8.729995892853282e-16,
+    "converged": true
+  },
+  {
+    "variable": "OD_mg_L",
+    "MD_delete_cluster_max_error": 2.949029909160572e-17,
+    "converged": true
+  },
+  {
+    "variable": "DBO5_mg_L",
+    "MD_delete_cluster_max_error": 2.0816681711721685e-17,
+    "converged": true
+  },
+  {
+    "variable": "DQO_mg_L",
+    "MD_delete_cluster_max_error": 6.938893903907228e-18,
+    "converged": true
+  },
+  {
+    "variable": "SST_mg_L",
+    "MD_delete_cluster_max_error": 2.42861286636753e-17,
+    "converged": true
+  },
+  {
+    "variable": "SS_mL_L",
+    "MD_delete_cluster_max_error": 1.0625181290357943e-17,
+    "converged": true
+  },
+  {
+    "variable": "NH3_N_mg_L",
+    "MD_delete_cluster_max_error": 2.3635607360183997e-17,
+    "converged": true
+  },
+  {
+    "variable": "NO2_mg_L",
+    "MD_delete_cluster_max_error": 6.3696877633523385e-18,
+    "converged": true
+  },
+  {
+    "variable": "NO3_mg_L",
+    "MD_delete_cluster_max_error": 2.0816681711721685e-17,
+    "converged": true
+  }
+]

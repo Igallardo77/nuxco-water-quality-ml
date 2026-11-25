@@ -12,7 +12,7 @@ Identification columns: `ID_muestra` (unique sample identifier), `Fecha` (nomina
 | `SDT_mg_L` | Total dissolved solids | mg/L |
 | `Salinidad_UPS` | Salinity | PSU |
 | `OD_mg_L` | Dissolved oxygen | mg/L |
-| `DBO5_mg_L` | Five-day biological oxygen demand | mg/L |
+| `DBO5_mg_L` | Five-day biochemical oxygen demand | mg/L |
 | `DQO_mg_L` | Chemical oxygen demand | mg/L |
 | `SST_mg_L` | Total suspended solids | mg/L |
 | `SS_mL_L` | Settleable solids | mL/L (verify laboratory unit) |
@@ -21,3 +21,10 @@ Identification columns: `ID_muestra` (unique sample identifier), `Fecha` (nomina
 | `NO3_mg_L` | Nitrate | mg/L |
 
 **Unit discrepancy:** a manuscript version describes settleable solids in mg/L, while the original data column is `SS_mL_L`. No values should be converted without laboratory confirmation.
+
+## Revised analysis identifiers and scope
+
+`Mes_transcurrido` is elapsed calendar months: 0, 2, 3, ..., 13. `Zona_B` equals 0 for P1-P3 and 1 for P4-P5. `Fecha_original` and `ID_original` retain source labels. Month-start dates are labels, not verified sampling days. The source workbook is byte-identical to the existing repository workbook.
+
+DO, pH and temperature are field measurements. Nitrogen species retain source numerical units; no ion-versus-nitrogen conversion was imposed. One nitrite zero and two settleable-solids zeros are retained in primary analyses, with separate sensitivity scenarios. Reported methods, limits and unavailable quality-assurance evidence are described in [methodology notes](methodology_notes.md).
+

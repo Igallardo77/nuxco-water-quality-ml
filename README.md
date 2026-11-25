@@ -1,114 +1,65 @@
-# Nuxco Lagoon Water Quality: Longitudinal Statistics and Interpretable Machine Learning
+# Nuxco Lagoon: a historical physicochemical baseline (2016-2017)
 
-A reproducible and locally tested Python workflow for physicochemical water-quality monitoring in **Nuxco Lagoon, Guerrero, Mexico**.
+Reproducible code and numerical results for **A Historical Physicochemical Baseline for Nuxco Lagoon Mexico Using Longitudinal Modeling and Interpretable Machine Learning**.
 
-This repository accompanies the manuscript draft *Longitudinal Modeling and Interpretable Machine Learning of Physicochemical Gradients in Nuxco Lagoon, Mexico*. It combines repeated-measures modeling and classical machine learning to describe water-quality gradients, identify multivariate profiles, evaluate predefined site-group separability, estimate dissolved oxygen, and flag atypical samples.
+Five stations, thirteen campaigns from February 2016 to March 2017, and thirteen physicochemical variables yield 65 station-campaign profiles and 845 measurements. **No sampling was conducted in March 2016.** Dates are month labels; exact sampling days are unavailable. The workbook is included in `data/`.
 
-**Study design:** 5 fixed sampling sites × 13 campaigns (February 2016–March 2017, excluding March 2016) = **65 site-campaign observations**, with **13 physicochemical parameters**. The analysis dataset is stored in worksheet `01_Dataset_ML`.
+This revision supersedes the earlier analysis and notebook. It treats the observations as a historical baseline, not a description of current lagoon conditions. Vences-Martínez et al. (2025) belongs to the team's continuing research; novelty is framed around the analytical questions and workflow rather than an absolute absence of recent studies.
 
-> **Scientific scope:** exploratory research with only five independent sites. P1–P3 (“Zone A”) and P4–P5 (“Zone B”) are predefined analytical groups, not independently validated ecological zones. Anomalies are unusual observations, not proof of pollution.
+## Reproduce
 
-**Repository status:** The Python script, Colab notebook, and documentation are available. The Excel dataset and manuscript PDF are **not yet uploaded**; add them manually using the paths shown below before running the analysis. Keep the repository private until the coauthors approve distribution.
-
-## Repository structure
-
-```text
-nuxco-water-quality-ml/
-├── README.md                         # English project documentation
-├── README_ES.md                      # Spanish project overview
-├── CITATION.cff                       # Citation metadata (DOI pending)
-├── requirements.txt                  # Python dependencies
-├── .gitignore
-├── src/
-│   └── water_quality_analysis.py     # Executable Python workflow
-├── notebooks/
-│   └── Nuxco_Water_Quality_Analysis.ipynb  # Google Colab notebook
-├── data/
-│   └── Base_Datos_Calidad_Agua_Integrada.xlsx
-└── docs/
-    ├── Nuxco_Manuscript_Preprint.pdf # Manuscript draft; approval needed before public release
-    ├── methodology_notes.md         # Assumptions, limitations, unit discrepancy
-    ├── data_dictionary.md           # Variable names and measurement units
-    └── how_to_publish.md            # GitHub publication instructions
-```
-
-## Analytical workflow
-
-| Stage | Methods | Output |
-|---|---|---|
-| Data quality and EDA | Missingness, uniqueness, descriptive statistics, Spearman correlations | Descriptive tables, heatmap |
-| Longitudinal modeling | Gaussian GEE with AR(1) working correlation; random-intercept MixedLM sensitivity | Coefficients, standard errors, p-values; FDR for GEE zone×time interactions |
-| Dimensionality reduction | Standardized PCA | Explained variance, scores, loadings |
-| Unsupervised learning | K-means (k=2–4), Ward, silhouette and adjusted Rand index | Clusters, evaluation plots, dendrogram |
-| Exploratory site-group classification | L2 logistic regression, linear SVM, shallow random forest | Out-of-fold predictions, balanced accuracy, macro-F1, ROC-AUC |
-| Dissolved oxygen estimation | Ridge, Elastic Net, SVR, random forest | Out-of-fold MAE, RMSE, R² and baseline comparison |
-| Anomaly screening | Isolation Forest, LOF, robust Mahalanobis distance | Consensus anomaly candidates |
-| Interpretation | Out-of-sample permutation importance; optional SHAP | Ranked features, explanatory figures |
-
-## Quick start: Google Colab (recommended)
-
-1. Open [Google Colab](https://colab.research.google.com/).
-2. Select **File → Upload notebook** and choose `notebooks/Nuxco_Water_Quality_Analysis.ipynb`.
-3. Select **Runtime → Run all**.
-4. When prompted, upload `data/Base_Datos_Calidad_Agua_Integrada.xlsx` (or upload it to the Colab file explorer before running).
-5. Wait for the models and figures to finish. A ZIP archive called `Resultados_Calidad_Agua.zip` will be downloaded in Colab.
-
-**Optional SHAP:** change `EJECUTAR_SHAP = False` to `True` in the notebook. Full-data SHAP figures are complementary, not evidence of out-of-sample performance.
-
-## Quick start: local Python
-
-Use **Python 3.10 or newer**. Open a terminal from the extracted repository root:
+Validated with Python 3.12.14 and the exact versions in `requirements.txt`:
 
 ```bash
 python -m venv .venv
-# Linux/macOS:
-source .venv/bin/activate
-# Windows PowerShell:
-# .venv\Scripts\Activate.ps1
+# Activate .venv using the command appropriate for your operating system.
 python -m pip install -r requirements.txt
 python src/water_quality_analysis.py
 ```
 
-Once you upload the Excel file to `data/Base_Datos_Calidad_Agua_Integrada.xlsx`, the script loads it from the repository. Results are written to `resultados_calidad_agua/`, and a zipped copy is created as `Resultados_Calidad_Agua.zip`.
+The complete run includes resampling, nested model selection and high-resolution figures; allow several minutes. Outputs are written to `revision_2016_2017/results/`, `revision_2016_2017/figures/`, and `figures/manuscript/`. Existing outputs in these directories are regenerated. No source measurements are overwritten.
 
-Run optional SHAP from the shell with:
+For Google Colab, open `notebooks/Nuxco_Water_Quality_Analysis.ipynb`. The notebook clones this repository using your GitHub access. For a private repository, grant access interactively; never insert tokens in notebook cells or commit credentials. The notebook invokes the same revised entry point.
 
-```bash
-# Linux/macOS:
-ENABLE_SHAP=1 python src/water_quality_analysis.py
-# PowerShell:
-# $env:ENABLE_SHAP="1"; python src/water_quality_analysis.py
-```
+## Revised workflow
 
-## Inputs and reproducibility
+- Source-sheet reconciliation: all 845 measurements compared with the original variable worksheets.
+- Gaussian identity-link GEE with AR(1) correlation based on elapsed calendar-month distances; Mancl-DeRouen covariance correction; approximate t reference with 4 degrees of freedom and alternative 3-df interaction sensitivity.
+- Benjamini-Hochberg correction across the thirteen group-by-time interactions within each specification.
+- Refits excluding consensus anomalies, October-November campaigns, and individual stations; comparison with campaign-order correlation.
+- Residual diagnostics, numerical covariance verification, collinearity, KMO/Bartlett assessment, parallel analysis and campaign-block resampling of PCA/clustering.
+- Leave-one-campaign-out and leave-one-station-out evaluation; nested campaign-grouped validation with preprocessing and model selection inside training folds.
+- Held-out permutation importance, classifier calibration, errors by campaign, nitrite-removal and recorded-zero sensitivities.
+- Consensus anomaly screening with Isolation Forest, LOF and robust Mahalanobis distance, including eighteen alternative detector settings.
 
-The workbook contains one consolidated table of 65 rows, original per-variable worksheets, a data dictionary, and methodological planning sheets. The analysis uses **only** `01_Dataset_ML`, avoiding double-counting the original/transposed tables. See [the data dictionary](docs/data_dictionary.md).
+## Main revised results
 
-Training/validation uses **leave-one-period-out** (13 held-out campaigns) as the primary strategy and **leave-one-site-out** as a secondary stress test. Out-of-fold results are evaluated using the same folds for all candidate algorithms. Predictive DO models are compared against a training-mean baseline, not judged by R² alone.
+| Analysis | Result | Scope |
+|---|---|---|
+| Corrected GEE interactions | Seven q < 0.05: BOD5, COD, TSS, settleable solids, ammonia nitrogen, nitrite, nitrate | Approximate inference with only five independent stations |
+| DO group-by-time interaction | q = 0.1188; B-A slope difference 0.0458 mg/L/month; 95% CI [-0.0068, 0.0984] | Different DO slopes are not statistically established |
+| PCA | PC1-PC2 75.0%; PC1-PC3 85.6% | Retention diagnostics support one or two axes depending on the temporal null; PC3 is unstable |
+| Logistic classification | Balanced accuracy 0.8846 | Discriminates predefined station groups; does not validate ecological zonation |
+| Fixed Elastic Net DO | R2 = 0.3847; RMSE = 0.4479 mg/L | Fixed-configuration campaign-held-out evaluation |
+| Nested DO model selection | R2 = 0.2229; RMSE = 0.5033 mg/L | Selection of model family and settings occurs inside training |
+| Anomalies | Six consensus flags; four October-November profiles persist in all 18 settings | Candidates for field/laboratory record review |
 
-The code uses a fixed random seed (`42`) and saves its figures, detailed model results, predictions and anomaly candidates. The main Python script was smoke-tested successfully using the bundled 65-row workbook (without optional SHAP). Version-sensitive library outputs may vary; record Python and package versions for a publication-quality reproduction.
+## Files
 
-## Outputs
+- `data/Base_Datos_Calidad_Agua_Integrada.xlsx`: original workbook, analysis sheet `01_Dataset_ML`.
+- `src/water_quality_analysis.py`: complete-run entry point.
+- `revision_2016_2017/`: revised modules, executed numerical results and detailed Spanish review report.
+- `figures/manuscript/`: final manuscript panel layouts in PNG and SVG (Figure 1 map is supplied as PNG).
+- `notebooks/Nuxco_Water_Quality_Analysis.ipynb`: revised Colab launcher.
+- `docs/methodology_notes.md`: assumptions and unresolved documentation.
+- `docs/revision_summary.md`: change record and manuscript correspondence.
+- `docs/data_dictionary.md`: units and identifiers.
+- `CITATION.cff`: author attribution; no publication DOI is asserted.
 
-The main results workbook (`Resultados_Estadistica_ML_Calidad_Agua.xlsx`) contains data summaries, correlations, longitudinal model coefficients, PCA loadings and scores, clusters, grouped-validation metrics, predictions, permutation importance, and anomaly candidates. Figures are saved to `resultados_calidad_agua/figuras/` and bundled with the workbook in a ZIP archive.
+## Interpretation and outstanding evidence
 
-## Interpretation limitations
+The 65 profiles are repeated observations at **five independent stations**. Small-cluster corrections do not remove that limitation. Groups A (P1-P3) and B (P4-P5) are predefined; hydrological attribution requires independent information. Held-out-campaign evaluation uses earlier and later campaigns and is not prospective forecasting. Correlations and model importance do not establish causation. The DO model is exploratory, and does not replace direct field measurement or constitute an operational warning system.
 
-- With **five sites**, GEE sandwich standard errors and asymptotic confidence intervals may be unreliable. Treat inferential p-values and q-values as exploratory pending small-cluster corrections and sensitivity checks.
-- AR(1) is indexed by observed campaigns, **not** elapsed calendar days (one month is absent).
-- The PCA components and clusters describe statistical patterns, **not causality** or regulatory water-quality classes.
-- Group labels were defined from site IDs and need independent hydrological/geographical justification.
-- Held-out-campaign validation is **not a truly prospective forecast** because the training data include campaigns before and after the held-out one.
-- Consensus anomalies must be investigated against laboratory quality assurance and field/hydrometeorological records.
-- Permutation importance from held-out predictions is primary; SHAP on the full dataset is supplementary.
-- **Important measurement-unit check:** the workbook uses `SS_mL_L` for settleable solids; one manuscript version says mg/L. Verify the laboratory report before submission. These units are not interchangeable.
+Outstanding laboratory evidence includes confirmation of transport conditions, instrument/container records, accreditation, duplicates/recoveries, and the analytical meaning of recorded zeros and nitrogen reporting units. Hypothetical half-limit substitution cannot establish the meaning of a zero. See the methodology notes for the distinction between documented methods and unavailable records.
 
-See [methodology notes](docs/methodology_notes.md) for full details.
-
-## Scientific attribution and public release
-
-Author names are listed in [`CITATION.cff`](CITATION.cff). The associated manuscript and supplementary code/data should be cited together once the article is published. No journal DOI or GitHub URL is claimed before assignment.
-
-**Before making the repository public**, confirm approval from all data owners/coauthors, verify variable units and bibliographic metadata, and select explicit licenses for code, data and figures. This package intentionally does **not** assert rights or specify a license on the authors’ behalf.
-
-Instructions for uploading to GitHub: [docs/how_to_publish.md](docs/how_to_publish.md).
+The repository update does not modify the submitted manuscript or resolve the remaining text-to-response alignment items. No reviewer correspondence or cover letters are included in the code distribution. Existing repository visibility is retained. Licensing and a persistent archive DOI remain subject to the authors' decisions.

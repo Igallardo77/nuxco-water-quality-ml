@@ -1,0 +1,14 @@
+{
+  "python": "3.12.14",
+  "complete_pipeline": "passed",
+  "profiles": 65,
+  "campaigns": 13,
+  "variables": 13,
+  "source_values_reconciled": 845,
+  "significant_interactions": 7,
+  "DO_interaction_q": 0.1187684497381384,
+  "nested_DO_R2": 0.2228884594314926,
+  "source_workbook_sha256": "dcea786dc4f148e478490c67e0b1969066da07439237290ede54784d39d7b704",
+  "numerical_MD_checks": 13,
+  "scope": "historical exploratory; five stations; no independent validation"
+}

@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "scenario": "unchanged",
+      "n": 65,
+      "MAE": 0.3689759107066412,
+      "RMSE": 0.4478557160368946,
+      "R2": 0.3847052095847914,
+      "Bias": -0.009980566395824796,
+      "baseline_RMSE": 0.5924076436368088
+    },
+    {
+      "scenario": "exclude_NO2_zero",
+      "n": 64,
+      "MAE": 0.3742925640136007,
+      "RMSE": 0.45419549504593104,
+      "R2": 0.3605647126503325,
+      "Bias": -0.008761996775595901,
+      "baseline_RMSE": 0.5891079757421336
+    },
+    {
+      "scenario": "exclude_any_zero_NO2_SS",
+      "n": 62,
+      "MAE": 0.35210317657740703,
+      "RMSE": 0.43425105211786413,
+      "R2": 0.4320311960715396,
+      "Bias": -0.01167327464696795,
+      "baseline_RMSE": 0.5980409681595621
+    },
+    {
+      "scenario": "LD_half",
+      "n": 65,
+      "MAE": 0.3689936946040267,
+      "RMSE": 0.4478648331981305,
+      "R2": 0.38468015777140296,
+      "Bias": -0.009981607288457683,
+      "baseline_RMSE": 0.5924076436368088
+    },
+    {
+      "scenario": "LC_half",
+      "n": 65,
+      "MAE": 0.3691589111950715,
+      "RMSE": 0.4479511019353834,
+      "R2": 0.3844430863412238,
+      "Bias": -0.009990670391860808,
+      "baseline_RMSE": 0.5924076436368088
+    }
+  ],
+  "note": "Hypothetical sensitivity only. No claim that zeros are non-detects; no original value changed. LD/LC use reported units pending confirmation of N-versus-ion basis."
+}
